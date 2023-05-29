@@ -86,19 +86,27 @@ public:
         return Point(x + p2.x, y + p2.y);
 
     }
+    Point operator*(double n) {
+        return Point(x * n, y * n);
+    }
     int getX() const {
         return x;
     }
     int getY() const {
         return y;
     }
+    Point operator-() {
+        return Point(-x, -y);
+    }
     //friend Point operator+(const Point& p1, const Point& p2);
+    //friend Point operator-(const Point& p1);
 };
 // 1Обычная функция (перегрузка)
 //static Point operator+(const Point& p1, const Point& p2) {
 //
 //    return Point(p1.getX()+ p2.getX(), p1.getY()+ p2.getY());
 //}
+
 
 // 2Дружественная функция (перегрузка) friend <function>
 
@@ -108,7 +116,17 @@ public:
 //
 //}
 
+//1
+//static Point operator-(const Point& p1) {
+//    return  Point(-(p1.getX()), -(p1.getY()));
+//}
 
+//2
+//Point operator-(const Point& p1) {
+//
+//    return Point(-(p1.x), -(p1.y));
+//
+//}
 int main() {
 
     setlocale(0, "");
@@ -136,4 +154,7 @@ int main() {
 
     Point p3{ point + point2 };
     p3.display();
+
+    Point p6{ -p3 }; cout << "\nP6:\n";
+    p6.display();
 }
