@@ -83,6 +83,8 @@ public:
 
 };
 
+
+
 int main() {
 
     setlocale(0, "");
@@ -105,6 +107,6 @@ int main() {
     Point multr{ Point::mult(point, 5 )}; cout << endl << "MultR:\n";
     multr.display();
     
-    cout << "\nДлина вектора: " << point.length(point) << endl;
-    cout << "Расстояние между точками point - point2 : " << point.distance(point, point2) << endl;
+    cout << "\nДлина вектора: " << Point::length(point) << endl;
+    cout << "Расстояние между точками point - point2 : " << Point::distance(point, point2) << endl;
 }
