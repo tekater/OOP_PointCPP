@@ -100,6 +100,18 @@ public:
     }
     //friend Point operator+(const Point& p1, const Point& p2);
     //friend Point operator-(const Point& p1);
+    Point& operator++() { // Префиксная
+        ++x;
+        ++y;
+        return *this;
+    }
+    Point operator++(int) { // Постфиксная
+        Point temp(*this);
+        ++x;
+        ++y;
+        return temp;
+    }
+
 };
 // 1Обычная функция (перегрузка)
 //static Point operator+(const Point& p1, const Point& p2) {
@@ -127,6 +139,8 @@ public:
 //    return Point(-(p1.x), -(p1.y));
 //
 //}
+
+
 int main() {
 
     setlocale(0, "");
@@ -157,4 +171,9 @@ int main() {
 
     Point p6{ -p3 }; cout << "\nP6:\n";
     p6.display();
+
+    Point p4{ 1,1 }; cout << "\nP4:\n";
+    p4.display();
+    ++p4; 
+    p4.display();
 }
