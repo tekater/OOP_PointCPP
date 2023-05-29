@@ -80,9 +80,33 @@ public:
         
         return sqrt((one * one) + (two * two));
     }
+    // 3 способ
+    Point operator+(const Point& p2) { // 1 параметр this ( в неявном виде)?
 
+        return Point(x + p2.x, y + p2.y);
+
+    }
+    int getX() const {
+        return x;
+    }
+    int getY() const {
+        return y;
+    }
+    //friend Point operator+(const Point& p1, const Point& p2);
 };
+// 1Обычная функция (перегрузка)
+//static Point operator+(const Point& p1, const Point& p2) {
+//
+//    return Point(p1.getX()+ p2.getX(), p1.getY()+ p2.getY());
+//}
 
+// 2Дружественная функция (перегрузка) friend <function>
+
+//Point operator+(const Point& p1, const Point& p2) {
+//
+//    return Point(p1.x + p2.x, p1.y + p2.y);
+//
+//}
 
 
 int main() {
@@ -109,4 +133,7 @@ int main() {
     
     cout << "\nДлина вектора: " << Point::length(point) << endl;
     cout << "Расстояние между точками point - point2 : " << Point::distance(point, point2) << endl;
+
+    Point p3{ point + point2 };
+    p3.display();
 }
