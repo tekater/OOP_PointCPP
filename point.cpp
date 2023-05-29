@@ -25,7 +25,7 @@ public:
         y = a.y;
     }
     void display() {
-        for (int i = 0; i < 20; i++) {
+        /*for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
                 if (i == x && j == y) {
                     cout << "*";
@@ -36,7 +36,8 @@ public:
             }
             cout << endl;
         }
-        cout << endl;
+        cout << endl;*/
+        cout << "(" << x << ";" << y << ");\n";
     }
     void read() {
         cout << "Заполните X\n";
@@ -82,8 +83,6 @@ public:
 
 };
 
-
-
 int main() {
 
     setlocale(0, "");
@@ -92,13 +91,20 @@ int main() {
     Point point{ 3,2 };
     Point point2{ 2,3 };
 
+    cout << "Point:\n";
     point.display();
+
+    cout << "\nPoint2:\n";
+    point2.display();
+
     point.add(point, point2);
     
-    Point addr{ Point::add(point,point2) };
+    Point addr{ Point::add(point,point2) }; cout << endl << "Addr:\n";
     addr.display();
 
-    Point multr{ Point::mult(point, 5 )};
+    Point multr{ Point::mult(point, 5 )}; cout << endl << "MultR:\n";
     multr.display();
-
+    
+    cout << "\nДлина вектора: " << point.length(point) << endl;
+    cout << "Расстояние между точками point - point2 : " << point.distance(point, point2) << endl;
 }
