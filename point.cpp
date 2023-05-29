@@ -112,6 +112,14 @@ public:
         return temp;
     }
 
+    bool operator==(const Point& p2)  {
+        if (x == p2.x && y == p2.y) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 };
 // 1Обычная функция (перегрузка)
 //static Point operator+(const Point& p1, const Point& p2) {
@@ -174,6 +182,12 @@ int main() {
 
     Point p4{ 1,1 }; cout << "\nP4:\n";
     p4.display();
-    ++p4; 
+    //++p4; 
     p4.display();
+   
+    Point p5{ 1,1 };
+    
+    if (p5 == p4) {
+        cout << "равны";
+    }
 }
